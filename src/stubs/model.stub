@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models\{{path}};
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\{{path}}\Traits\Attribute\{{class}}Attribute;
+use App\Models\{{path}}\Traits\Relationship\{{class}}Relationship;
+
+class {{class}} extends Model
+{
+    use SoftDeletes
+        // , NewsAttribute
+        // , NewsRelationship
+        ;
+
+    /**
+     * The attributes that are not mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = ['id'];
+}

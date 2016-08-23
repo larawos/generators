@@ -1,0 +1,115 @@
+<?php
+
+namespace App\Http\Controllers\{{path}};
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\{{path}}\Store{{class}}Request;
+use App\Http\Requests\{{path}}\Update{{class}}Request;
+use App\Http\Requests\{{path}}\Delete{{class}}Request;
+use App\Http\Requests\{{path}}\PermanentlyDelete{{class}}Request;
+use App\Services\{{path}}\{{class}}Service;
+
+/**
+ * Class {{class}}Controller
+ * @package App\Http\Controllers\{{path}}
+ */
+class {{class}}Controller extends Controller
+{
+    /**
+     * @var {{class}}Service
+     **/
+    protected ${{variable}}s;
+
+    public function __construct({{class}}Service ${{variable}}s)
+    {
+        $this->{{variable}}s = ${{variable}}s;
+    }
+
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function index()
+    {
+        return view('{{variable}}.index')
+            // ->with('{{variable}}s', $this->{{variable}}s->getPaginated(25))
+            ;
+    }
+
+    /**
+     * @param  $id
+     * @return \Illuminate\View\View
+     */
+    public function show($id)
+    {
+        return view('{{variable}}.show')
+            // ->with('{{variable}}', $this->{{variable}}s->find($id))
+            ;
+    }
+
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function create()
+    {
+        return view('{{variable}}.create');
+    }
+
+    /**
+     * @param  $id
+     * @return \Illuminate\View\View
+     */
+    public function edit($id)
+    {
+        return view('{{variable}}.edit')
+            // ->with('{{variable}}', $this->{{variable}}s->find($id))
+            ;
+    }
+
+    /**
+     * @param  $id
+     * @param  Store{{class}}Request $request
+     * @return mixed
+     */
+    public function store(Store{{class}}Request $request)
+    {
+        $this->{{variable}}s->create($request->all());
+
+        return redirect()->route('{{variable}}.index')->withInput(['_success' => 'store {{variable}} successed.']);
+    }
+
+    /**
+     * @param  $id
+     * @param  Update{{class}}Request $request
+     * @return mixed
+     */
+    public function update($id, Update{{class}}Request $request)
+    {
+        $this->{{variable}}s->update($id, $request->all());
+
+        return redirect()->route('{{variable}}.index')->withInput(['_success' => 'update {{variable}} successed.']);
+    }
+
+    /**
+     * @param  $id
+     * @param  Delete{{class}}Request $request
+     * @return mixed
+     */
+    public function destroy($id, Delete{{class}}Request $request)
+    {
+        $this->{{variable}}s->destroy($id);
+
+        return redirect()->back()->withInput(['_success' => 'destroy {{variable}} successed.']);
+    }
+
+    /**
+     * @param  $id
+     * @param  PermanentlyDelete{{class}}Request $request
+     * @return mixed
+     */
+    public function delete($id, PermanentlyDelete{{class}}Request $request)
+    {
+        $this->{{variable}}s->delete($id);
+
+        return redirect()->back()->withInput(['_success' => 'delete {{variable}} successed.']);
+    }
+}

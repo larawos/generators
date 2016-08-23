@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Models\{{path}}\Traits\Relationship;
+
+/**
+ * Class {{class}}Relationship
+ * @package App\Models\{{path}}\Traits\Relationship
+ */
+trait {{class}}Relationship
+{
+    //
+}

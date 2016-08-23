@@ -1,0 +1,12 @@
+<?php 
+
+namespace App\Presenters\{{path}};
+
+/**
+ * Class {{class}}Presenter
+ * @package App\Presenters\{{path}}
+ */
+class {{class}}Presenter
+{
+    //
+}

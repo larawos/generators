@@ -1,0 +1,21 @@
+{
+    "name": "larawos/generators",
+    "description": "Larawos's generators for laravel 5.",
+    "keywords": ["laravel", "larawos", "generators"],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "John Smith",
+            "email": "wosjohn@foxmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Larawos\\Generators\\": "src/"
+        }
+    }
+}

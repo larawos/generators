@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Models\{{path}}\Traits\Attribute;
+
+/**
+ * Class {{class}}Attribute
+ * @package App\Models\{{path}}\Traits\Attribute
+ */
+trait {{class}}Attribute
+{
+    //
+}

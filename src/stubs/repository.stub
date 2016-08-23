@@ -1,0 +1,143 @@
+<?php
+
+namespace App\Repositories\{{path}};
+
+use App\Contracts\{{path}}\{{class}}RepositoryContract;
+use App\Models\{{path}}\{{class}};
+use Larawos\Generators\GeneratorException;
+
+/**
+ * Class Eloquent{{class}}Repository
+ * @package App\Repositories\{{path}}
+ */
+class Eloquent{{class}}Repository implements {{class}}RepositoryContract
+{
+    /**
+     * @param  $id
+     * @throws GeneralException
+     * @return mixed
+     */
+    public function find($id)
+    {
+        return {{class}}::findOrFail($id);
+    }
+
+    /**
+     * @param  $per_page
+     * @param  string      $order_by
+     * @param  string      $sort
+     * @return \Illuminate\Pagination\Paginator
+     */
+    public function getPaginated($per_page, $order_by = 'id', $sort = 'asc')
+    {
+        return {{class}}::orderBy($order_by, $sort)
+            ->paginate($per_page);
+    }
+
+    /**
+     * @param  $per_page
+     * @return \Illuminate\Pagination\Paginator
+     */
+    public function getDeletedPaginated($per_page)
+    {
+        return {{class}}::onlyTrashed()
+            ->paginate($per_page);
+    }
+
+    /**
+     * @param  string  $order_by
+     * @param  string  $sort
+     * @return mixed
+     */
+    public function getAll($order_by = 'id', $sort = 'asc')
+    {
+        return {{class}}::orderBy($order_by, $sort)
+            ->get();
+    }
+
+    /**
+     * @param  $input
+     * @throws GeneralException
+     * @return bool
+     */
+    public function create($input)
+    {
+        ${{variable}} = new {{class}};
+
+        if (${{variable}}->save()) {
+            return true;
+        }
+
+        throw new GeneralException('create {{variable}} failed.');
+    }
+
+    /**
+     * @param $id
+     * @param $input
+     * @throws GeneralException
+     * @return bool
+     */
+    public function update($id, $input)
+    {
+        ${{variable}} = $this->find($id);
+
+        if (${{variable}}->update($input)) {
+            // For whatever reason this just wont work in the above call, so a second is needed for now
+
+            // ${{variable}}->save();
+
+            return true;
+        }
+
+        throw new GeneralException('update {{variable}} failed.');
+    }
+
+    /**
+     * @param  $id
+     * @throws GeneralException
+     * @return bool
+     */
+    public function destroy($id)
+    {
+        ${{variable}} = $this->find($id);
+        if (${{variable}}->delete()) {
+            return true;
+        }
+
+        throw new GeneralException('destroy {{variable}} failed.');
+    }
+
+    /**
+     * @param  $id
+     * @throws GeneralException
+     * @return boolean|null
+     */
+    public function delete($id)
+    {
+        ${{variable}} = $this->find($id);
+
+        // if this model associated with other models,there will throw an exception.
+        try {
+            ${{variable}}->forceDelete();
+        } catch (\Exception $e) {
+            throw new GeneralException($e->getMessage());
+        }
+    }
+
+    /**
+     * @param  $id
+     * @throws GeneralException
+     * @return bool
+     */
+    public function restore($id)
+    {
+        ${{variable}} = $this->find($id);
+
+        if (${{variable}}->restore()) {
+            return true;
+        }
+
+        throw new GeneralException('restore {{variable}} failed.');
+    }
+
+}

@@ -219,7 +219,7 @@ class Helper
      */
     protected function getMigrationPath()
     {
-        return base_path() . '/database/migrations/create_' . mb_strtolower(class_basename($this->module)) . '_table.php';
+        return base_path() . '/database/migrations/' . date('Y_m_d_His') . '_create_' . mb_strtolower(class_basename($this->module)) . '_table.php';
     }
 
     /**

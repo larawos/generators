@@ -1,4 +1,4 @@
-# Larawos's generators for laravel 5
+# Larawos's generators for laravel 5.3
 
 If you are using laravel to develop large projects, you will find that you spend a lot of time to write some extra but necessary classes and methods.
 
@@ -65,9 +65,9 @@ Using the except or only when you need...
 - `migration`
 - `model`
 - `attribute and relationship trait for model`
-- `repository and contract for model. also,they are binded in App\Providers\AppProvider.`
-- `controller`
-- `service for controller`
-- `a lot of common request`
-- `persenter for view`
-- `a lot of common views`
+- `repository and contract for model.`
+- `controller.`
+- `service for controller.`
+- `a lot of common request.`
+- `persenter for view.`
+- `optimized bind and route for module.`

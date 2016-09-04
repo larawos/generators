@@ -2,7 +2,7 @@
 
 namespace App\Services\{{path}};
 
-use App\Contracts\{{path}}\{{class}}RepositoryContract;
+use App\Contracts\{{class}}RepositoryContract;
 use Larawos\Generators\GeneratorException;
 
 /**
@@ -14,16 +14,16 @@ class {{class}}Service
     /**
      * @var {{class}}RepositoryContract
      **/
-    protected ${{variable}}s;
+    protected ${{name}}s;
 
-    public function __construct({{class}}RepositoryContract ${{variable}}s)
+    public function __construct({{class}}RepositoryContract ${{name}}s)
     {
-        $this->{{variable}}s = ${{variable}}s;
+        $this->{{name}}s = ${{name}}s;
     }
 
     public function __call($method, $args)
     {
-        return call_user_func_array(array($this->{{variable}}s, $method), $args);
+        return call_user_func_array([$this->{{name}}s, $method], $args);
     }
 
 }

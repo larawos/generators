@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Contracts\{{path}};
+namespace App\Contracts;
 
 /**
  * Interface {{class}}RepositoryContract
- * @package App\Contracts\{{path}}
+ * @package App\Contracts
  */
 interface {{class}}RepositoryContract
 {

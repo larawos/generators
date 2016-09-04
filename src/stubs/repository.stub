@@ -2,7 +2,7 @@
 
 namespace App\Repositories\{{path}};
 
-use App\Contracts\{{path}}\{{class}}RepositoryContract;
+use App\Contracts\{{class}}RepositoryContract;
 use App\Models\{{path}}\{{class}};
 use Larawos\Generators\GeneratorException;
 
@@ -62,13 +62,13 @@ class Eloquent{{class}}Repository implements {{class}}RepositoryContract
      */
     public function create($input)
     {
-        ${{variable}} = new {{class}};
+        ${{name}} = new {{class}};
 
-        if (${{variable}}->save()) {
+        if (${{name}}->save()) {
             return true;
         }
 
-        throw new GeneralException('create {{variable}} failed.');
+        throw new GeneralException('create {{name}} failed.');
     }
 
     /**
@@ -79,17 +79,17 @@ class Eloquent{{class}}Repository implements {{class}}RepositoryContract
      */
     public function update($id, $input)
     {
-        ${{variable}} = $this->find($id);
+        ${{name}} = $this->find($id);
 
-        if (${{variable}}->update($input)) {
+        if (${{name}}->update($input)) {
             // For whatever reason this just wont work in the above call, so a second is needed for now
 
-            // ${{variable}}->save();
+            // ${{name}}->save();
 
             return true;
         }
 
-        throw new GeneralException('update {{variable}} failed.');
+        throw new GeneralException('update {{name}} failed.');
     }
 
     /**
@@ -99,12 +99,12 @@ class Eloquent{{class}}Repository implements {{class}}RepositoryContract
      */
     public function destroy($id)
     {
-        ${{variable}} = $this->find($id);
-        if (${{variable}}->delete()) {
+        ${{name}} = $this->find($id);
+        if (${{name}}->delete()) {
             return true;
         }
 
-        throw new GeneralException('destroy {{variable}} failed.');
+        throw new GeneralException('destroy {{name}} failed.');
     }
 
     /**
@@ -114,11 +114,11 @@ class Eloquent{{class}}Repository implements {{class}}RepositoryContract
      */
     public function delete($id)
     {
-        ${{variable}} = $this->find($id);
+        ${{name}} = $this->find($id);
 
         // if this model associated with other models,there will throw an exception.
         try {
-            ${{variable}}->forceDelete();
+            ${{name}}->forceDelete();
         } catch (\Exception $e) {
             throw new GeneralException($e->getMessage());
         }
@@ -131,13 +131,13 @@ class Eloquent{{class}}Repository implements {{class}}RepositoryContract
      */
     public function restore($id)
     {
-        ${{variable}} = $this->find($id);
+        ${{name}} = $this->find($id);
 
-        if (${{variable}}->restore()) {
+        if (${{name}}->restore()) {
             return true;
         }
 
-        throw new GeneralException('restore {{variable}} failed.');
+        throw new GeneralException('restore {{name}} failed.');
     }
 
 }

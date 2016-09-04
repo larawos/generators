@@ -1,6 +1,6 @@
 {
     "name": "larawos/generators",
-    "description": "Larawos's generators for laravel 5.",
+    "description": "Larawos's generators for laravel 5.3",
     "keywords": ["laravel", "larawos", "generators"],
     "require": {
         "php": ">=5.4.0",

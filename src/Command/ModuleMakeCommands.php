@@ -31,13 +31,6 @@ class ModuleMakeCommands extends Command
     protected $helps;
 
     /**
-     * Meta information for the requested migration.
-     *
-     * @var array
-     */
-    protected $meta;
-
-    /**
      * Create a new command instance.
      *
      * @param Filesystem $files
@@ -75,11 +68,16 @@ class ModuleMakeCommands extends Command
             }
         }
 
-        if ($this->helps->bind()) {
-            $this->info(camel_case($this->argument('name')) . ' repository and contract bind successfully.');
+        if ($this->helps->optimize()) {
+            $this->info(camel_case($this->argument('name')) . ' optimized successfully.');
         }
     }
 
+    /**
+     * parse the console command options.
+     *
+     * @return array
+     */
     protected function parseOption($option)
     {
         return empty(explode(',', $option)) ? [] : explode(',', $option);

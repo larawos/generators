@@ -1,0 +1,4 @@
+
+Route::group(['namespace' => '{{path}}'], function () {
+    Route::resource('{{name}}', '{{class}}Controller');
+});

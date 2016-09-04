@@ -34,6 +34,7 @@ class Helper
         'update_request'             => '/Http/Requests/{{path}}/Update{{class}}Request.php',
         'delete_request'             => '/Http/Requests/{{path}}/Delete{{class}}Request.php',
         'permanently_delete_request' => '/Http/Requests/{{path}}/PermanentlyDelete{{class}}Request.php',
+        'general_exception'        => '/Exceptions/GeneralException.php',
     ];
 
     public function __construct(Filesystem $files)
@@ -89,7 +90,7 @@ class Helper
      */
     public function optimize()
     {
-        return $this->bind() || $this->setRoute();
+        return $this->bind() && $this->setRoute();
     }
 
     /**

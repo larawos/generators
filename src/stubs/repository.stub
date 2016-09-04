@@ -4,7 +4,7 @@ namespace App\Repositories\{{path}};
 
 use App\Contracts\{{class}}RepositoryContract;
 use App\Models\{{path}}\{{class}};
-use Larawos\Generators\GeneratorException;
+use App\Exceptions\GeneralException;
 
 /**
  * Class Eloquent{{class}}Repository

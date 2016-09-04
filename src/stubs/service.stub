@@ -3,7 +3,6 @@
 namespace App\Services\{{path}};
 
 use App\Contracts\{{class}}RepositoryContract;
-use Larawos\Generators\GeneratorException;
 
 /**
  * Class {{class}}Service

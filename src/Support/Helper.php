@@ -23,8 +23,8 @@ class Helper
 
     protected $components = [
         'model'                      => '/Models/{{path}}/{{class}}.php',
-        'attribute'                  => '/Models/{{path}}/Trait/Attribute/{{class}}Attribute.php',
-        'relationship'               => '/Models/{{path}}/Trait/Relationship/{{class}}Relationship.php',
+        'attribute'                  => '/Models/{{path}}/Traits/Attribute/{{class}}Attribute.php',
+        'relationship'               => '/Models/{{path}}/Traits/Relationship/{{class}}Relationship.php',
         'contract'                   => '/Contracts/{{class}}RepositoryContract.php',
         'repository'                 => '/Repositories/{{path}}/Eloquent{{class}}Repository.php',
         'service'                    => '/Services/{{path}}/{{class}}Service.php',

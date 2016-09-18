@@ -27,12 +27,16 @@ class {{class}}Controller extends Controller
 
     public function index()
     {
-        //
+        ${{name}}s = $this->{{name}}s->getPaginated(50);
+
+        return compact('{{name}}s');
     }
 
     public function show($id)
     {
-        //
+        ${{name}} = $this->{{name}}s->find($id);
+
+        return compact('{{name}}');
     }
 
     public function create()
@@ -42,26 +46,48 @@ class {{class}}Controller extends Controller
 
     public function edit($id)
     {
-        //
+        ${{name}} = $this->{{name}}s->find($id);
+
+        return compact('{{name}}');
     }
 
     public function store(Store{{class}}Request $request)
     {
-        //
+        if (!$this->{{name}}s->create($request->all()))
+        {
+            return $this->{{name}}s->error();
+        }
+
+        return $this->{{name}}s->success();
     }
 
     public function update($id, Update{{class}}Request $request)
     {
-        //
+        if (!$this->{{name}}s->update($id, $request->all()))
+        {
+            return $this->{{name}}s->error();
+        }
+
+        return $this->{{name}}s->success();
     }
 
     public function destroy($id, Delete{{class}}Request $request)
     {
-        //
+        if (!$this->{{name}}s->destroy($id))
+        {
+            return $this->{{name}}s->error();
+        }
+
+        return $this->{{name}}s->success();
     }
 
     public function delete($id, PermanentlyDelete{{class}}Request $request)
     {
-        //
+        if (!$this->{{name}}s->delete($id))
+        {
+            return $this->{{name}}s->error();
+        }
+
+        return $this->{{name}}s->success();
     }
 }

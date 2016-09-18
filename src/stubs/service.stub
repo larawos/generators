@@ -20,6 +20,17 @@ class {{class}}Service
         $this->{{name}}s = ${{name}}s;
     }
 
+    public function success($message = 'SUCCESS')
+    {
+        $code = 200;
+        return compact('message', 'code');
+    }
+
+    public function error($code = 500, $message = 'FAILED')
+    {
+        return compact('message', 'code');
+    }
+
     public function __call($method, $args)
     {
         return call_user_func_array([$this->{{name}}s, $method], $args);

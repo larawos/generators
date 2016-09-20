@@ -62,7 +62,6 @@ Using the except or only when you need...
 
 ...this will give you:
 
-- `migration`
 - `model`
 - `attribute and relationship trait for model`
 - `repository and contract for model.`
